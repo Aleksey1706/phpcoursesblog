@@ -10,6 +10,7 @@ class PostsCategoryController extends Controller
     public function show($id) {
         $category = Category::all()->where('id', $id)->first();
         $catArticles = $category->articles->sortByDesc('created_at');
+
         return view('categories.postsCategory', [ 'category' => $category, 'catArticles' => $catArticles]);
     }
 }

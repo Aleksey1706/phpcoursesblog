@@ -11,6 +11,7 @@ class TagPostsController extends Controller
         $tag = Tag::all()->where('id', $id)->first();
         $posts = $tag->articles->sortByDesc('created_at');
 
+
         return view('tags.tagPosts', ['tag' => $tag, 'posts' => $posts]);
     }
 }
